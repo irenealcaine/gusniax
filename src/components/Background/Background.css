@@ -1,0 +1,100 @@
+.background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.background__sweep {
+  position: absolute;
+  top: -25%;
+  left: -30vw;
+  width: 50vw;
+  height: 150%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.04) 50%,
+    transparent 100%
+  );
+  filter: blur(10px);
+  opacity: 0;
+  animation: light-sweep 24s linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes light-sweep {
+  0% {
+    transform: translateX(0) rotate(30deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  15% {
+    transform: translateX(240vw) rotate(30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(240vw) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.background__star {
+  position: absolute;
+  pointer-events: none;
+  animation: star-drift ease-in-out infinite;
+  will-change: transform;
+}
+
+.background__star::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0;
+  animation: star-twinkle ease-in-out infinite;
+  animation-duration: var(--tw-duration, 3.5s);
+  animation-delay: var(--tw-delay, 0s);
+  will-change: transform, opacity;
+}
+
+.background__star--bright::before {
+  box-shadow: 0 0 6px 1px rgba(212, 175, 55, 0.6);
+}
+
+@keyframes star-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(var(--x1, 0), var(--y1, 0));
+  }
+  50% {
+    transform: translate(var(--x2, 0), var(--y2, 0));
+  }
+  75% {
+    transform: translate(var(--x3, 0), var(--y3, 0));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.2);
+  }
+}
