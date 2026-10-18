@@ -66,11 +66,16 @@
   }
 }
 
-.social-links__item:hover,
+.social-links__item:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
 .social-links__item:focus-visible {
   border-color: var(--color-gold);
   color: var(--color-gold);
-  outline: none;
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
 }
 
 .social-links__icon {

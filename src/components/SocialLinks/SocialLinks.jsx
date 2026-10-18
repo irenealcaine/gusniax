@@ -16,6 +16,7 @@ function SocialLinks() {
             >
               <Icon className="social-links__icon" aria-hidden="true" />
               <span>{label}</span>
+              <span className="visually-hidden">(se abre en una pestaña nueva)</span>
             </a>
           </li>
         ))}
